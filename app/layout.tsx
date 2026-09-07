@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex">
         <SideBar />
-        <section className="px-10 py-12 text-black">{children}</section>
+        <section className="w-full sm:px-10 p-2 py-12 text-black">{children}</section>
       </body>
     </html>
   );

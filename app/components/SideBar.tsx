@@ -9,7 +9,7 @@ const SideBar = () => {
       </h2>
       <ul className="flex flex-col gap-3">
         <Link href={"/"}>
-          <li className="flex gap-2 items-center lg:text-2xl text-base font-light cursor-pointer hover:bg-[#374151] w-full hover:rounded-sm py-1.25 px-2.5">
+          <li className="flex gap-2 items-center lg:text-2xl text-base font-light cursor-pointer hover:bg-[#374151] active:bg-[#374151] w-full hover:rounded-sm py-1.25 px-2.5">
             <Image
               src={"/icons/dashboard.svg"}
               alt="dashboard"
