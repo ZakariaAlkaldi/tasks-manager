@@ -2,14 +2,17 @@
 
 import { useState } from "react";
 
-export default function StatusSelect() {
-  const [status, setStatus] = useState("all");
+type statusType = {
+  status: string;
+  onStatusChange: (status: string) => void;
+};
 
+export default function StatusSelect({ onStatusChange, status }: statusType) {
   return (
     <div className="relative w-fit">
       <select
         value={status}
-        onChange={(e) => setStatus(e.target.value)}
+        onChange={(e) => onStatusChange(e.target.value)}
         className="cursor-pointer appearance-none rounded-md bg-[#eef2fc] px-4 py-3 pr-10 text-sm font-medium text-[#172033] outline-none transition-colors hover:bg-[#e5ebfa] focus:ring-2 focus:ring-[#d5def3] w-56 sm:w-49"
       >
         <option value="all">كل الحالات</option>

@@ -2,6 +2,8 @@
 import { useState } from "react";
 import Task from "./Task";
 import StatusSelect from "./StatusSelect";
+import SearchForm from "./SearchForm";
+import AddButton from "./AddButton";
 
 const TasksContent = () => {
   type task = {
@@ -16,39 +18,68 @@ const TasksContent = () => {
     {
       id: 1,
       customer: "محمد",
-      task: "محمد",
-      status: "قيد التنفيذ",
+      task: "تصميم",
+      status: "inprogress",
+      dueTime: "2026-9-15",
+    },
+    {
+      id: 4,
+      customer: "محمد",
+      task: "تصميم",
+      status: "pending",
+      dueTime: "2026-9-15",
+    },
+    {
+      id: 2,
+      customer: "محمد",
+      task: "تحليل",
+      status: "pending",
+      dueTime: "2026-9-15",
+    },
+    {
+      id: 5,
+      customer: "محمد",
+      task: "تحليل",
+      status: "completed",
+      dueTime: "2026-9-15",
+    },
+    {
+      id: 3,
+      customer: "محمد",
+      task: "تخطيط",
+      status: "completed",
+      dueTime: "2026-9-15",
+    },
+    {
+      id: 6,
+      customer: "محمد",
+      task: "تخطيط",
+      status: "completed",
       dueTime: "2026-9-15",
     },
   ];
 
   const [search, setSearch] = useState("");
+  const [status, setStatus] = useState("all");
 
-  const filteredCustomers = tasks.filter((task) =>
+  const filteredTasks = tasks.filter((task) =>
     task.task.toLowerCase().includes(search.toLowerCase()),
   );
+  // const filteredStatus = tasks.filter((task) => task.status == status);
 
   return (
     <>
       <div className="w-full flex items-center justify-between">
-        <form>
-          <input
-            type="text"
-            placeholder="أبحث بأسم المهمة"
-            className="p-3 my-6  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none "
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-          />
-        </form>
-        <button className="w-fit h-full py-3 px-5 bg-[#141C2B] text-white font-bold cursor-pointer">
-          أضافة مهمة
-        </button>
+        <SearchForm
+          placeHolder="أبحث بأسم المهمة"
+          onSearchChanges={setSearch}
+        />
+
+        <AddButton text="أضافة مهمة" />
       </div>
 
       <div className="w-full sm:w-100 flex gap-2 mb-5">
-        <StatusSelect />
-        <StatusSelect />
+        <StatusSelect onStatusChange={setStatus} status={status} />
       </div>
 
       <table className="w-full border-collapse text-center table-auto ">
@@ -72,9 +103,34 @@ const TasksContent = () => {
           </tr>
         </thead>
         <tbody>
-          {!filteredCustomers
-            ? tasks.map((task) => {
-                return (
+          {status == "all"
+            ? !filteredTasks
+              ? tasks.map((task) => {
+                  return (
+                    <Task
+                      key={task.id}
+                      id={task.id}
+                      task={task.task}
+                      customer={task.customer}
+                      status={task.status}
+                      dueTime={task.dueTime}
+                    />
+                  );
+                })
+              : filteredTasks.map((task) => {
+                  return (
+                    <Task
+                      key={task.id}
+                      id={task.id}
+                      task={task.task}
+                      customer={task.customer}
+                      status={task.status}
+                      dueTime={task.dueTime}
+                    />
+                  );
+                })
+            : tasks.map((task) => {
+                return task.status == status ? (
                   <Task
                     key={task.id}
                     id={task.id}
@@ -83,19 +139,7 @@ const TasksContent = () => {
                     status={task.status}
                     dueTime={task.dueTime}
                   />
-                );
-              })
-            : filteredCustomers.map((task) => {
-                return (
-                  <Task
-                    key={task.id}
-                    id={task.id}
-                    task={task.task}
-                    customer={task.customer}
-                    status={task.status}
-                    dueTime={task.dueTime}
-                  />
-                );
+                ) : null;
               })}
         </tbody>
       </table>
