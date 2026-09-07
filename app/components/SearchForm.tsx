@@ -1,13 +1,17 @@
 "use client";
-const SearchForm = ({ placeHolder }: { placeHolder: string,  }) => {
+type searchType = {
+  placeHolder: string;
+  onSearchChanges: (search: string) => void;
+};
+const SearchForm = ({ placeHolder, onSearchChanges }: searchType) => {
   return (
     <form>
       <input
         type="text"
         placeholder={placeHolder}
-        className="p-3 my-6 w-full sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none"
+        className="p-3 my-6  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none "
         onChange={(e) => {
-          console.log(e.target.value);
+          onSearchChanges(e.target.value);
         }}
       />
     </form>
