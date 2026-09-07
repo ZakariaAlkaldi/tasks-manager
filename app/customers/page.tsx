@@ -8,8 +8,6 @@ const CustomersPage = () => {
         قائمة العملاء
       </h1>
 
-      <SearchForm placeHolder="أبحث بأسم العميل" />
-
       <CustomersTable />
     </section>
   );

@@ -1,5 +1,5 @@
 "use client";
-const SearchForm = ({ placeHolder }: { placeHolder: string }) => {
+const SearchForm = ({ placeHolder }: { placeHolder: string,  }) => {
   return (
     <form>
       <input
