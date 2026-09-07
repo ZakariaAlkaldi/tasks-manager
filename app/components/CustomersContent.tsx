@@ -1,8 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import Customer from "./Customer";
 
-const CustomersTable = () => {
+const CustomersContent = () => {
   type customer = {
     id: number;
     name: string;
@@ -25,16 +25,21 @@ const CustomersTable = () => {
 
   return (
     <>
-      <form>
-        <input
-          type="text"
-          placeholder="أبحث بأسم العميل"
-          className="p-3 my-6 w-full sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none"
-          onChange={(e) => {
-            setSearch(e.target.value);
-          }}
-        />
-      </form>
+      <div className="w-full flex items-center justify-between">
+        <form>
+          <input
+            type="text"
+            placeholder="أبحث بأسم العميل"
+            className="p-3 my-6  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none "
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
+        </form>
+        <button className="w-fit h-full py-3 px-5 bg-[#141C2B] text-white font-bold cursor-pointer">
+          أضافة عميل
+        </button>
+      </div>
 
       <table className="w-full border-collapse text-center table-auto ">
         <thead>
@@ -83,4 +88,4 @@ const CustomersTable = () => {
   );
 };
 
-export default CustomersTable;
+export default CustomersContent;
