@@ -2,15 +2,17 @@
 
 import { useState } from "react";
 
-type statusType = {
+type customersType = {
   selected: string;
+  customers: string[];
   onSelectedChange: (selected: string) => void;
 };
 
-export default function StatusSelect({
+export default function CustomersSelect({
   onSelectedChange,
+  customers,
   selected,
-}: statusType) {
+}: customersType) {
   return (
     <div className="relative w-fit">
       <select
@@ -18,10 +20,14 @@ export default function StatusSelect({
         onChange={(e) => onSelectedChange(e.target.value)}
         className="cursor-pointer appearance-none rounded-md bg-[#eef2fc] px-4 py-3 pr-10 text-sm font-medium text-[#172033] outline-none transition-colors hover:bg-[#e5ebfa] focus:ring-2 focus:ring-[#d5def3] w-56 sm:w-49"
       >
-        <option value="all">كل الحالات</option>
-        <option value="inprogress">قيد التنفيذ</option>
-        <option value="pending">قيد الانتظار</option>
-        <option value="completed">مكتملة</option>
+        <option value="all">كل العملاء</option>
+        {customers.map((customer) => {
+          return (
+            <option key={customer} value={customer}>
+              {customer}
+            </option>
+          );
+        })}
       </select>
 
       {/* Custom arrow */}

@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import Customer from "./Customer";
+import SearchForm from "./SearchForm";
+import AddButton from "./AddButton";
 
 const CustomersContent = () => {
   type customer = {
@@ -26,19 +28,11 @@ const CustomersContent = () => {
   return (
     <>
       <div className="w-full flex items-center justify-between">
-        <form>
-          <input
-            type="text"
-            placeholder="أبحث بأسم العميل"
-            className="p-3 my-6  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none "
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-          />
-        </form>
-        <button className="w-fit h-full py-3 px-5 bg-[#141C2B] text-white font-bold cursor-pointer">
-          أضافة عميل
-        </button>
+        <SearchForm
+          placeHolder="أبحث بأسم العميل"
+          onSearchChanges={setSearch}
+        />
+        <AddButton text="أضافة عميل" />
       </div>
 
       <table className="w-full border-collapse text-center table-auto ">
