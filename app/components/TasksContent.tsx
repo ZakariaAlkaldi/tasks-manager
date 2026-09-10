@@ -87,7 +87,7 @@ const TasksContent = () => {
           placeHolder="أبحث بأسم المهمة"
           onSearchChanges={setSearch}
         />
-        <AddButton text="أضافة مهمة" />
+        <AddButton text="أضافة مهمة" link="../customers/addCustomer" />
       </div>
 
       <div className="w-full sm:w-100 flex gap-2 mb-5">
