@@ -3,25 +3,12 @@ import { useState } from "react";
 import Customer from "./Customer";
 import SearchForm from "./SearchForm";
 import AddButton from "./AddButton";
+import { customer } from "../types/customer";
 
-const CustomersContent = () => {
-  type customer = {
-    id: number;
-    name: string;
-    email: string;
-    company: string;
-  };
-
-  const customers: customer[] = [
-    { id: 1, name: "محمد", email: "mohammed@gmail.com", company: "ABC" },
-    { id: 2, name: "علي", email: "mohammed@gmail.com", company: "ABC" },
-    { id: 3, name: "صالح", email: "mohammed@gmail.com", company: "ABC" },
-    { id: 4, name: "أحمد", email: "mohammed@gmail.com", company: "ABC" },
-  ];
-
+const CustomersContent = ({ customers }: { customers: customer[] }) => {
   const [search, setSearch] = useState("");
 
-  const filteredCustomers = customers.filter((customer) =>
+  const filteredCustomers = customers?.filter((customer) =>
     customer.name.toLowerCase().includes(search.toLowerCase()),
   );
 
@@ -32,7 +19,7 @@ const CustomersContent = () => {
           placeHolder="أبحث بأسم العميل"
           onSearchChanges={setSearch}
         />
-        <AddButton text="أضافة عميل" />
+        <AddButton text="أضافة عميل" link="../customers/addCustomer" />
       </div>
 
       <table className="w-full border-collapse text-center table-auto ">
@@ -54,7 +41,7 @@ const CustomersContent = () => {
         </thead>
         <tbody>
           {!filteredCustomers
-            ? customers.map((customer) => {
+            ? customers?.map((customer) => {
                 return (
                   <Customer
                     key={customer.id}
