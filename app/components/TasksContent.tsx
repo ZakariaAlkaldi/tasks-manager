@@ -5,79 +5,29 @@ import StatusSelect from "./StatusSelect";
 import SearchForm from "./SearchForm";
 import AddButton from "./AddButton";
 import CustomersSelect from "./CustomersSelect";
+import { task } from "../types/task";
+import Link from "next/link";
 
-const TasksContent = () => {
-  type task = {
-    id: number;
-    customer: string;
-    task: string;
-    status: string;
-    dueTime: string;
-  };
-
-  const tasks: task[] = [
-    {
-      id: 1,
-      customer: "محمد",
-      task: "تصميم",
-      status: "inprogress",
-      dueTime: "2026-9-15",
-    },
-    {
-      id: 4,
-      customer: "أحمد",
-      task: "تصميم",
-      status: "pending",
-      dueTime: "2026-9-15",
-    },
-    {
-      id: 2,
-      customer: "علي",
-      task: "تحليل",
-      status: "pending",
-      dueTime: "2026-9-15",
-    },
-    {
-      id: 5,
-      customer: "صاح",
-      task: "تحليل",
-      status: "completed",
-      dueTime: "2026-9-15",
-    },
-    {
-      id: 3,
-      customer: "أيمن",
-      task: "تخطيط",
-      status: "completed",
-      dueTime: "2026-9-15",
-    },
-    {
-      id: 6,
-      customer: "سالم",
-      task: "تخطيط",
-      status: "completed",
-      dueTime: "2026-9-15",
-    },
-  ];
-
-  const customers = tasks.map((task) => {
-    return task.customer;
-  });
-
+const TasksContent = ({ tasks }: { tasks: task[] }) => {
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("all");
   const [customer, setCustomer] = useState("all");
 
   const filteredTasks = tasks.filter((task) => {
-    const matchesSearch = task.task
+    const matchesSearch = task.title
       .toLowerCase()
       .includes(search.toLowerCase());
 
     const matchesStatus = status === "all" || task.status === status;
 
-    const matchesCustomer = customer === "all" || task.customer === customer;
+    const matchesCustomer =
+      customer === "all" || task.customer.name === customer;
 
     return matchesSearch && matchesStatus && matchesCustomer;
+  });
+
+  const customers = tasks.map((task) => {
+    return task.customer.name;
   });
 
   return (
@@ -87,7 +37,7 @@ const TasksContent = () => {
           placeHolder="أبحث بأسم المهمة"
           onSearchChanges={setSearch}
         />
-        <AddButton text="أضافة مهمة" link="/" />
+        <AddButton text="أضافة مهمة" link="../tasks/addTask" />
       </div>
 
       <div className="w-full sm:w-100 flex gap-2 mb-5">
@@ -121,16 +71,7 @@ const TasksContent = () => {
         </thead>
         <tbody>
           {filteredTasks.map((task) => {
-            return (
-              <Task
-                key={task.id}
-                id={task.id}
-                task={task.task}
-                customer={task.customer}
-                status={task.status}
-                dueTime={task.dueTime}
-              />
-            );
+            return <Task key={task.id} task={task} />;
           })}
         </tbody>
       </table>

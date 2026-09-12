@@ -1,6 +1,6 @@
 "use client";
 import PageTitle from "@/app/components/PageTitle";
-import { addCustomer } from "@/app/libs/addCustomer";
+import { addCustomer } from "@/app/services/customer.service";
 import { useState } from "react";
 
 const AddCustomer = () => {
@@ -26,6 +26,7 @@ const AddCustomer = () => {
         }, 2000);
       } else {
         const customer = {
+          id: "",
           name: name,
           email: email,
           company: company,

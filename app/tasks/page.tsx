@@ -1,11 +1,14 @@
 import PageTitle from "../components/PageTitle";
 import TasksContent from "../components/TasksContent";
+import { getAllTasks } from "../services/task.service";
 
-const TasksPage = () => {
+const TasksPage = async () => {
+  const tasks = await getAllTasks();
+
   return (
     <section className="w-full">
       <PageTitle title="قائمة المهام" />
-      <TasksContent />
+      <TasksContent tasks={tasks} />
     </section>
   );
 };

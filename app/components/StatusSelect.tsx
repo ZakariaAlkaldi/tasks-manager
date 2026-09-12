@@ -19,9 +19,9 @@ export default function StatusSelect({
         className="cursor-pointer appearance-none rounded-md bg-[#eef2fc] px-4 py-3 pr-10 text-sm font-medium text-[#172033] outline-none transition-colors hover:bg-[#e5ebfa] focus:ring-2 focus:ring-[#d5def3] w-56 sm:w-49"
       >
         <option value="all">كل الحالات</option>
-        <option value="inprogress">قيد التنفيذ</option>
-        <option value="pending">قيد الانتظار</option>
-        <option value="completed">مكتملة</option>
+        <option value="IN_PROGRESS">قيد التنفيذ</option>
+        <option value="PENDING">قيد الانتظار</option>
+        <option value="COMPLETED">مكتملة</option>
       </select>
 
       {/* Custom arrow */}
