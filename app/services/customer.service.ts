@@ -2,6 +2,13 @@ import { customer } from "../types/customer";
 
 const API_URL = process.env.NEXT_PUBLIC_URL;
 
+export async function getAllCustomers() {
+  const response = await fetch(`${API_URL}/customers`);
+  const data = await response.json();
+
+  return data.data;
+}
+
 export async function getCutomerById(id: string) {
   const response = await fetch(`${API_URL}/customers/${id}`);
   const data = await response.json();
