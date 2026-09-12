@@ -11,7 +11,7 @@ const Task = ({ task }: { task: task }) => {
       <td className=" cursor-pointer">
         <Link
           key={task.id}
-          href={`../tasks`}
+          href={`../tasks/${task.id}`}
           className="py-1 px-2 bg-[#5F75B2] text-white rounded-sm"
         >
           المزيد

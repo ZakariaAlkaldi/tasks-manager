@@ -14,6 +14,6 @@ export type task = {
   dueDate: string; // YYYY-MM-DD
   customerId: string; // Customer UUID
   customer: customer; // Related customer
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 };
