@@ -55,9 +55,9 @@ const TasksContent = ({ tasks }: { tasks: task[] }) => {
     return matchesSearch && matchesStatus && matchesCustomer;
   });
 
-  const customers = tasks.map((task) => {
-    return task.customer.name;
-  });
+  const customers: string[] = [
+    ...new Set(tasks.map((task) => task.customer.name)),
+  ];
 
   return (
     <>

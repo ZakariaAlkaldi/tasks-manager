@@ -19,9 +19,9 @@ export default function CustomersSelect({
         className="cursor-pointer appearance-none rounded-md bg-[#eef2fc] px-4 py-3 pr-10 text-sm font-medium text-[#172033] outline-none transition-colors hover:bg-[#e5ebfa] focus:ring-2 focus:ring-[#d5def3] w-56 sm:w-49"
       >
         <option value="all">كل العملاء</option>
-        {customers.map((customer) => {
+        {customers.map((customer, index) => {
           return (
-            <option key={customer} value={customer}>
+            <option key={index} value={customer}>
               {customer}
             </option>
           );
