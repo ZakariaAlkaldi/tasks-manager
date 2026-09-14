@@ -46,11 +46,6 @@ const TaskForm = ({ customers }: { customers: customer[] }) => {
           setTimeout(() => {
             setCreated("");
           }, 2000);
-
-          // Clear form
-          setTitle("");
-          setDescription("");
-          setDueDate("");
         } else {
           setError("الرجاء اختيار احد العملاء");
           setTimeout(() => {
@@ -70,7 +65,7 @@ const TaskForm = ({ customers }: { customers: customer[] }) => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="text-center w-full sm:w-100 flex flex-col"
+        className="text-right w-full sm:w-100 flex flex-col"
       >
         <div>
           <select
@@ -104,10 +99,11 @@ const TaskForm = ({ customers }: { customers: customer[] }) => {
             setDescription(e.target.value);
           }}
         />
+        <label htmlFor="date">تاريخ تسليم المهمة</label>
         <input
+          id="date"
           className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none "
           type="date"
-          placeholder="تاريخ الأنتهاء"
           onChange={(e) => {
             setDueDate(e.target.value);
           }}

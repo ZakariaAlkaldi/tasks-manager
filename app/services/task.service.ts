@@ -55,3 +55,39 @@ export async function addTask(task: task) {
 
   return response.json();
 }
+
+export async function updateTask(id: string, status: string) {
+  const updatedTask = {
+    status: status,
+  };
+
+  if (!API_URL) {
+    throw new Error("API URL is not defined");
+  }
+
+  const response = await fetch(`${API_URL}/tasks/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedTask),
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+
+    throw new Error(error.message || "Failed to Update Task");
+  }
+
+  return response.json();
+}
+
+export async function deleteTask(id: string) {
+  const response = await fetch(`${API_URL}/tasks/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to delete task");
+  }
+}

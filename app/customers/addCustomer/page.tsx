@@ -38,11 +38,6 @@ const AddCustomer = () => {
           setTimeout(() => {
             setCreated("");
           }, 2000);
-
-          // Clear form
-          setName("");
-          setEmail("");
-          setCompany("");
         } catch (error) {
           setError(` ${error}حدث خطأ أثناء إضافة العميل`);
           setTimeout(() => {

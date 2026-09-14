@@ -6,12 +6,41 @@ import SearchForm from "./SearchForm";
 import AddButton from "./AddButton";
 import CustomersSelect from "./CustomersSelect";
 import { task } from "../types/task";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import PopUp from "./PopUp";
+import SuccPopUp from "./SuccPopUp";
+import { deleteTask } from "../services/task.service";
 
 const TasksContent = ({ tasks }: { tasks: task[] }) => {
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("all");
   const [customer, setCustomer] = useState("all");
+  const [taskId, setTaskId] = useState("");
+  const [isDisplay, setIsDisplay] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
+
+  const router = useRouter();
+
+  const display = (id: string) => {
+    setIsDisplay(true);
+    setTaskId(id);
+  };
+
+  const onClose = () => {
+    setIsDisplay(false);
+    setIsDeleted(false);
+  };
+
+  const onConfirm = async () => {
+    try {
+      await deleteTask(taskId);
+      setIsDisplay(false);
+      router.refresh();
+      setIsDeleted(true);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const filteredTasks = tasks.filter((task) => {
     const matchesSearch = task.title
@@ -32,6 +61,21 @@ const TasksContent = ({ tasks }: { tasks: task[] }) => {
 
   return (
     <>
+      {isDisplay && (
+        <PopUp
+          title="حذف مهمة"
+          description="هل أنت متأكد من حذف هذه المهمة؟"
+          onClose={onClose}
+          onConfirm={onConfirm}
+        />
+      )}
+      {isDeleted && (
+        <SuccPopUp
+          title="حذف مهمة"
+          description="تم حذف المهمة بنجاح"
+          onClose={onClose}
+        />
+      )}
       <div className="w-full flex items-center justify-between">
         <SearchForm
           placeHolder="أبحث بأسم المهمة"
@@ -71,7 +115,7 @@ const TasksContent = ({ tasks }: { tasks: task[] }) => {
         </thead>
         <tbody>
           {filteredTasks.map((task) => {
-            return <Task key={task.id} task={task} />;
+            return <Task key={task.id} task={task} display={display} />;
           })}
         </tbody>
       </table>

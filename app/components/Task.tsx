@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { task } from "../types/task";
 
-const Task = ({ task }: { task: task }) => {
+const Task = ({
+  task,
+  display,
+}: {
+  task: task;
+  display: (id: string) => void;
+}) => {
   return (
     <tr className="text-[#141C2B] sm:text-xl">
       <td className="p-2">{task.title}</td>
@@ -16,6 +22,14 @@ const Task = ({ task }: { task: task }) => {
         >
           المزيد
         </Link>
+        <button
+          onClick={() => {
+            display(task.id);
+          }}
+          className="py-1 px-2 mr-2 bg-[#f44336] text-white rounded-sm cursor-pointer"
+        >
+          حذف
+        </button>
       </td>
     </tr>
   );
