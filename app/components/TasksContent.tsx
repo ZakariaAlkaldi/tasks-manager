@@ -95,7 +95,7 @@ const TasksContent = ({ tasks }: { tasks: task[] }) => {
 
       <table className="w-full border-collapse text-center table-auto ">
         <thead>
-          <tr className="bg-[#141C2B] text-white">
+          <tr className="bg-[#141C2B] dark:bg-[#0E1D31] text-white">
             <th className="p-5 text-md sm:text-xl font-bold uppercase ">
               المهمة
             </th>

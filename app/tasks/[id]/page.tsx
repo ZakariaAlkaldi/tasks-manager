@@ -15,7 +15,7 @@ const TaskDetails = async ({ params }: props) => {
       <header className="relative">
         <Link
           href={"../tasks"}
-          className="absolute left-0 top-0 hidden sm:flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50"
+          className="absolute left-0 top-0 hidden sm:flex items-center dark:text-white gap-2 rounded-lg border border-slate-200 bg-white px-5 py-3 text-sm  font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 dark:bg-[#0F1E35]"
         >
           <span>العودة إلى المهام</span>
         </Link>
@@ -28,26 +28,32 @@ const TaskDetails = async ({ params }: props) => {
       <div className="sm:mt-10 mt-5 sm:pb-8 pb-4">
         <div className="grid grid-cols-3 gap-2 items-center">
           {/* Due Date */}
-          <div className="flex flex-col items-start sm:gap-3 justify-center">
-            <p className="text-sm text-slate-500">تاريخ الاستحقاق</p>
+          <div className="flex flex-col items-start sm:gap-3 justify-center ">
+            <p className="text-sm text-slate-500 dark:text-white">
+              تاريخ الاستحقاق
+            </p>
 
-            <p className="mt-2 font-semibold text-slate-800">{task.dueDate}</p>
+            <p className="mt-2 font-semibold text-slate-800 dark:text-white">
+              {task.dueDate}
+            </p>
           </div>
 
           {/* Customer */}
           <div className="flex flex-col items-start sm:gap-3 justify-center">
-            <p className="text-sm text-slate-500">العميل</p>
+            <p className="text-sm text-slate-500 dark:text-white">العميل</p>
 
-            <p className="mt-2 font-semibold text-slate-800">
+            <p className="mt-2 font-semibold text-slate-800 dark:text-white">
               {task.customer.name}
             </p>
           </div>
 
           {/* Created Date */}
           <div className="flex flex-col items-start sm:gap-3 justify-center">
-            <p className="text-sm text-slate-500">تاريخ الإنشاء</p>
+            <p className="text-sm text-slate-500 dark:text-white">
+              تاريخ الإنشاء
+            </p>
 
-            <p className="mt-2 font-semibold text-slate-800">
+            <p className="mt-2 font-semibold text-slate-800 dark:text-white">
               {task.createdAt.slice(0, 10)}
             </p>
           </div>
@@ -55,18 +61,18 @@ const TaskDetails = async ({ params }: props) => {
       </div>
 
       {/* Description */}
-      <section className="w-full rounded-xl mb-5 border border-slate-200 bg-white sm:p-8 p-4 shadow-sm">
-        <h3 className="sm:text-lg text-md font-bold text-slate-800">
+      <section className="w-full rounded-xl mb-5 border border-slate-200 bg-white dark:bg-[#0F1E35] sm:p-8 p-4 shadow-sm">
+        <h3 className="sm:text-lg text-md font-bold text-slate-800 dark:text-white">
           تفاصيل المهمة
         </h3>
-        <p className="mt-3 sm:text-md text-sm leading-8 text-slate-500">
+        <p className="mt-3 sm:text-md text-sm leading-8 text-slate-500 dark:text-white">
           {task.description}
         </p>
       </section>
 
-      <div className="rounded-xl border border-slate-200 bg-white sm:p-8 p-4 shadow-sm">
+      <div className="rounded-xl border border-slate-200 bg-white dark:bg-[#0F1E35] sm:p-8 p-4 shadow-sm">
         <section>
-          <h3 className="sm:text-lg text-md font-bold text-slate-800">
+          <h3 className="sm:text-lg text-md font-bold text-slate-800 dark:text-white">
             تغير الحالة
           </h3>
           <div className="mt-3 flex gap-3">

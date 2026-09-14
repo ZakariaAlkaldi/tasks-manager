@@ -60,7 +60,7 @@ const UpdateCustomerForm = ({ customer }: { customer: customer }) => {
       className="text-center w-full sm:w-100 flex flex-col"
     >
       <input
-        className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none "
+        className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:text-white dark:bg-[#0F1E35] dark:border dark:border-[#1D3858]"
         type="text"
         placeholder="أسم العميل"
         defaultValue={customer.name}
@@ -69,7 +69,7 @@ const UpdateCustomerForm = ({ customer }: { customer: customer }) => {
         }}
       />
       <input
-        className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none "
+        className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:text-white dark:bg-[#0F1E35] dark:border dark:border-[#1D3858]"
         type="email"
         placeholder="عنوان البريد"
         defaultValue={customer.email}
@@ -78,7 +78,7 @@ const UpdateCustomerForm = ({ customer }: { customer: customer }) => {
         }}
       />
       <input
-        className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none "
+        className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:text-white dark:bg-[#0F1E35] dark:border dark:border-[#1D3858]"
         type="text"
         placeholder="الشركة"
         defaultValue={customer.company}
@@ -88,7 +88,7 @@ const UpdateCustomerForm = ({ customer }: { customer: customer }) => {
       />
       <button
         type="submit"
-        className="w-full h-full py-3 px-5 bg-[#141C2B] text-white font-bold cursor-pointer"
+        className="w-full h-full py-3 px-5 bg-[#141C2B] dark:bg-[#113E80] text-white font-bold cursor-pointer"
       >
         تعديل
       </button>
