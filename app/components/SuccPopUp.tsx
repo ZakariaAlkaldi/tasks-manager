@@ -37,7 +37,7 @@ const SuccPopUp = ({ title, description, onClose }: DeleteTaskPopupProps) => {
             onClick={onClose}
             className="flex-1 rounded-lg border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-50"
           >
-            إلغاء
+            موافق
           </button>
         </div>
       </div>
