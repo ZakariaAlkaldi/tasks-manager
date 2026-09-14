@@ -85,7 +85,7 @@ const TaskForm = ({ customers }: { customers: customer[] }) => {
         </div>
 
         <input
-          className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none "
+          className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:text-white dark:bg-[#0F1E35] dark:border dark:border-[#1D3858]"
           type="text"
           placeholder="عنوان المهمة"
           onChange={(e) => {
@@ -93,7 +93,7 @@ const TaskForm = ({ customers }: { customers: customer[] }) => {
           }}
         />
         <textarea
-          className="p-3 my-2 w-full h-20 resize-none  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none "
+          className="p-3 my-2 w-full h-20 resize-none  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:text-white dark:bg-[#0F1E35] dark:border dark:border-[#1D3858]"
           placeholder="وصف المهمة"
           onChange={(e) => {
             setDescription(e.target.value);
@@ -102,7 +102,7 @@ const TaskForm = ({ customers }: { customers: customer[] }) => {
         <label htmlFor="date">تاريخ تسليم المهمة</label>
         <input
           id="date"
-          className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none "
+          className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:text-white dark:bg-[#0F1E35] dark:border dark:border-[#1D3858]"
           type="date"
           onChange={(e) => {
             setDueDate(e.target.value);
@@ -110,7 +110,7 @@ const TaskForm = ({ customers }: { customers: customer[] }) => {
         />
         <button
           type="submit"
-          className="w-full h-full py-3 px-5 bg-[#141C2B] text-white font-bold cursor-pointer"
+          className="w-full h-full py-3 px-5 bg-[#141C2B] dark:bg-[#113E80] text-white font-bold cursor-pointer"
         >
           اضافة
         </button>

@@ -10,7 +10,7 @@ type customerProps = {
 
 const Customer = ({ id, name, email, company, display }: customerProps) => {
   return (
-    <tr className="text-[#141C2B] sm:text-xl ">
+    <tr className="text-[#141C2B] dark:text-white sm:text-xl ">
       <td className="p-2">{name}</td>
       <td className="p-2">{email}</td>
       <td className="p-2">{company}</td>

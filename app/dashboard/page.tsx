@@ -55,11 +55,13 @@ const Dashboard = async () => {
           />
         </section>
 
-        <h3 className="mt-5 text-xl text-slate-800">أحدث المهام</h3>
+        <h3 className="mt-5 text-xl text-slate-800 dark:text-white">
+          أحدث المهام
+        </h3>
 
         <table className="w-full mt-5 border-collapse text-center table-auto ">
           <thead>
-            <tr className="bg-[#141C2B] text-white">
+            <tr className="bg-[#141C2B] dark:bg-[#0E1D31] text-white">
               <th className="p-5 text-md sm:text-xl font-bold uppercase ">
                 المهمة
               </th>
@@ -77,7 +79,10 @@ const Dashboard = async () => {
           <tbody>
             {recentTasks.map((task: task) => {
               return (
-                <tr key={task.id} className="text-[#141C2B] sm:text-xl">
+                <tr
+                  key={task.id}
+                  className="text-[#141C2B] dark:text-white sm:text-xl"
+                >
                   <td className="p-2">{task.title}</td>
                   <td className="p-2">{task.customer.name}</td>
                   <td className="p-2">{task.status}</td>

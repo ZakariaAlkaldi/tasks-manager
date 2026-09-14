@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const SideBar = () => {
   return (
-    <aside className="md:w-[20%] md:p-10 w-fit h-screen flex flex-col gap-6 text-[#ffffff] pt-10 bg-[#141C2B]">
+    <aside className="md:w-[20%] md:p-10 w-fit h-screen flex flex-col gap-6 text-[#ffffff] pt-10 bg-[#141C2B] dark:bg-[#091527]">
       <h2 className="lg:text-3xl text-2xl lg:font-extrabold font-normal border-b border-[#374151] pb-6 md:block hidden">
         نظام ادارة العملاء
       </h2>
@@ -42,6 +42,18 @@ const SideBar = () => {
               className="md:hidden block"
             />
             <p className="md:block hidden">المهام</p>
+          </li>
+        </Link>
+        <Link href={"/settings"}>
+          <li className="flex gap-2 items-center lg:text-2xl text-base font-light cursor-pointer hover:bg-[#374151] w-full hover:rounded-sm py-1.25 px-2.5">
+            <Image
+              src={"/icons/task.svg"}
+              alt="tasks"
+              width={35}
+              height={35}
+              className="md:hidden block"
+            />
+            <p className="md:block hidden">الاعدادات</p>
           </li>
         </Link>
       </ul>

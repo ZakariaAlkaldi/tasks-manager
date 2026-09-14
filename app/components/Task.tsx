@@ -9,7 +9,7 @@ const Task = ({
   display: (id: string) => void;
 }) => {
   return (
-    <tr className="text-[#141C2B] sm:text-xl">
+    <tr className="text-[#141C2B] dark:text-white sm:text-xl">
       <td className="p-2">{task.title}</td>
       <td className="p-2">{task.customer.name}</td>
       <td className="p-2">{task.status}</td>
