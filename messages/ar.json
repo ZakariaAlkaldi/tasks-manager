@@ -1,0 +1,15 @@
+{
+  "Dashboard": {
+    "pageTitle": "لوحة التحكم",
+    "totalCustomers": "إجمالي العملاء",
+    "totalTasks": "إجمالي المهام",
+    "pendingTasks": "المهام قيد الانتظار",
+    "inProgressTasks": "المهام قيد التنفيذ",
+    "completedTasks": "المهام المكتملة",
+    "recentTasksTitle": "أحدث المهام",
+    "tableTask": "المهمة",
+    "tableCustomer": "العميل",
+    "tableStatus": "الحالة",
+    "tableDueDate": "وقت التسليم"
+  }
+}

@@ -1,6 +1,6 @@
-import PageTitle from "@/app/components/PageTitle";
-import TaskForm from "@/app/components/TaskForm";
-import { getAllCustomers } from "@/app/services/customer.service";
+import PageTitle from "../../components/PageTitle";
+import TaskForm from "../../components/TaskForm";
+import { getAllCustomers } from "../../services/customer.service";
 
 const AddTask = async () => {
   const customers = await getAllCustomers();

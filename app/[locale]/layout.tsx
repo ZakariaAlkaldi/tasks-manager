@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SideBar from "./components/SideBar";
-import { ThemeProvider } from "next-themes";
+import Providers from "../providers";
+import { NextIntlClientProvider } from "next-intl";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   description: "A system to manage customers and tasks relating to them",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: LayoutProps<"/[locale]">) {
   return (
     <html
       lang="en"
@@ -27,12 +28,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex">
-        <SideBar />
-        <section className="sm:w-full w-50 sm:px-10 p-2 py-12 bg-[#f8fafc] dark:bg-[#0A172A] text-black dark:text-white">
-          <ThemeProvider attribute="class" enableSystem defaultTheme="system">
-            {children}
-          </ThemeProvider>
-        </section>
+        <NextIntlClientProvider>
+          <SideBar />
+          <section className="sm:w-full w-50 sm:px-10 p-2 py-12 bg-[#f8fafc] dark:bg-[#0A172A] text-black dark:text-white">
+            <Providers>{children}</Providers>
+          </section>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

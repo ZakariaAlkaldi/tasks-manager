@@ -1,6 +1,6 @@
 "use client";
-import PageTitle from "@/app/components/PageTitle";
-import { addCustomer } from "@/app/services/customer.service";
+import PageTitle from "../../components/PageTitle";
+import { addCustomer } from "../../services/customer.service";
 import { useState } from "react";
 
 const AddCustomer = () => {
