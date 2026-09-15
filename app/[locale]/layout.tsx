@@ -20,10 +20,16 @@ export const metadata: Metadata = {
   description: "A system to manage customers and tasks relating to them",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/[locale]">) {
+export default async function RootLayout({
+  children,
+  params,
+}: LayoutProps<"/[locale]">) {
+  const { locale } = await params;
+
   return (
     <html
-      lang="en"
+      lang={locale}
+      dir={locale === "ar" ? "rtl" : "ltr"}
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >

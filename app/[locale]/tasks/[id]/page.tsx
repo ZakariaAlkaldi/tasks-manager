@@ -1,12 +1,14 @@
 import StatusButtons from "../../components/StatusButtons";
 import { getTaskById } from "../../services/task.service";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 type props = {
   params: Promise<{ id: string }>;
 };
 const TaskDetails = async ({ params }: props) => {
   const { id } = await params;
+  const t = await getTranslations("TaskDetails");
 
   const task = await getTaskById(id);
 
@@ -17,7 +19,7 @@ const TaskDetails = async ({ params }: props) => {
           href={"../tasks"}
           className="absolute left-0 top-0 hidden sm:flex items-center dark:text-white gap-2 rounded-lg border border-slate-200 bg-white px-5 py-3 text-sm  font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 dark:bg-[#0F1E35]"
         >
-          <span>العودة إلى المهام</span>
+          <span>{t("back")}</span>
         </Link>
 
         {/* Title */}
@@ -30,7 +32,7 @@ const TaskDetails = async ({ params }: props) => {
           {/* Due Date */}
           <div className="flex flex-col items-start sm:gap-3 justify-center ">
             <p className="text-sm text-slate-500 dark:text-white">
-              تاريخ الاستحقاق
+              {t("dueDate")}
             </p>
 
             <p className="mt-2 font-semibold text-slate-800 dark:text-white">
@@ -40,7 +42,9 @@ const TaskDetails = async ({ params }: props) => {
 
           {/* Customer */}
           <div className="flex flex-col items-start sm:gap-3 justify-center">
-            <p className="text-sm text-slate-500 dark:text-white">العميل</p>
+            <p className="text-sm text-slate-500 dark:text-white">
+              {t("customer")}
+            </p>
 
             <p className="mt-2 font-semibold text-slate-800 dark:text-white">
               {task.customer.name}
@@ -50,7 +54,7 @@ const TaskDetails = async ({ params }: props) => {
           {/* Created Date */}
           <div className="flex flex-col items-start sm:gap-3 justify-center">
             <p className="text-sm text-slate-500 dark:text-white">
-              تاريخ الإنشاء
+              {t("createdDate")}
             </p>
 
             <p className="mt-2 font-semibold text-slate-800 dark:text-white">
@@ -63,7 +67,7 @@ const TaskDetails = async ({ params }: props) => {
       {/* Description */}
       <section className="w-full rounded-xl mb-5 border border-slate-200 bg-white dark:bg-[#0F1E35] sm:p-8 p-4 shadow-sm">
         <h3 className="sm:text-lg text-md font-bold text-slate-800 dark:text-white">
-          تفاصيل المهمة
+          {t("description")}
         </h3>
         <p className="mt-3 sm:text-md text-sm leading-8 text-slate-500 dark:text-white">
           {task.description}
@@ -73,7 +77,7 @@ const TaskDetails = async ({ params }: props) => {
       <div className="rounded-xl border border-slate-200 bg-white dark:bg-[#0F1E35] sm:p-8 p-4 shadow-sm">
         <section>
           <h3 className="sm:text-lg text-md font-bold text-slate-800 dark:text-white">
-            تغير الحالة
+            {t("changeStatus")}
           </h3>
           <div className="mt-3 flex gap-3">
             <StatusButtons initialStatus={task.status} taskTd={task.id} />

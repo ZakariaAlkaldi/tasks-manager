@@ -2,8 +2,10 @@
 import { useState } from "react";
 import { customer } from "../types/customer";
 import { updateCustomer } from "../services/customer.service";
+import { useTranslations } from "next-intl";
 
 const UpdateCustomerForm = ({ customer }: { customer: customer }) => {
+  const t = useTranslations("Forms");
   const id = customer.id;
   const [name, setName] = useState(customer.name);
   const [email, setEmail] = useState(customer.email);
@@ -15,13 +17,13 @@ const UpdateCustomerForm = ({ customer }: { customer: customer }) => {
     e.preventDefault();
 
     if (!name || !email || !company) {
-      setError("قم بادخال كل البيانات");
+      setError(t("required"));
       setTimeout(() => {
         setError("");
       }, 2000);
     } else {
       if (!email.endsWith(".com") || !email.includes("@")) {
-        setError("الرجاء كتابة البريد بالشكل الصحيح");
+        setError(t("invalidEmail"));
         setTimeout(() => {
           setError("");
         }, 2000);
@@ -35,7 +37,7 @@ const UpdateCustomerForm = ({ customer }: { customer: customer }) => {
         try {
           const result = await updateCustomer(updatedCustomer);
 
-          setCreated(`تم تعديل بيانات ${result.data.name}`);
+          setCreated(t("customerUpdated", { name: result.data.name }));
           setTimeout(() => {
             setCreated("");
           }, 2000);
@@ -45,7 +47,7 @@ const UpdateCustomerForm = ({ customer }: { customer: customer }) => {
           setEmail("");
           setCompany("");
         } catch (error) {
-          setError(` ${error}حدث خطأ أثناء تعديل البيانات`);
+          setError(t("customerUpdateError", { error: String(error) }));
           setTimeout(() => {
             setError("");
           }, 2000);
@@ -62,7 +64,7 @@ const UpdateCustomerForm = ({ customer }: { customer: customer }) => {
       <input
         className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:text-white dark:bg-[#0F1E35] dark:border dark:border-[#1D3858]"
         type="text"
-        placeholder="أسم العميل"
+        placeholder={t("namePlaceholder")}
         defaultValue={customer.name}
         onChange={(e) => {
           setName(e.target.value);
@@ -71,7 +73,7 @@ const UpdateCustomerForm = ({ customer }: { customer: customer }) => {
       <input
         className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:text-white dark:bg-[#0F1E35] dark:border dark:border-[#1D3858]"
         type="email"
-        placeholder="عنوان البريد"
+        placeholder={t("emailPlaceholder")}
         defaultValue={customer.email}
         onChange={(e) => {
           setEmail(e.target.value);
@@ -80,7 +82,7 @@ const UpdateCustomerForm = ({ customer }: { customer: customer }) => {
       <input
         className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] text-[#334155] placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:text-white dark:bg-[#0F1E35] dark:border dark:border-[#1D3858]"
         type="text"
-        placeholder="الشركة"
+        placeholder={t("companyPlaceholder")}
         defaultValue={customer.company}
         onChange={(e) => {
           setCompany(e.target.value);
@@ -90,7 +92,7 @@ const UpdateCustomerForm = ({ customer }: { customer: customer }) => {
         type="submit"
         className="w-full h-full py-3 px-5 bg-[#141C2B] dark:bg-[#113E80] text-white font-bold cursor-pointer"
       >
-        تعديل
+        {t("update")}
       </button>
       <p className="mt-5 text-red-500">{error}</p>
       <p className="mt-5 text-green-800">{created}</p>

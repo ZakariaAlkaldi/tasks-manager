@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const SideBar = () => {
+  const t = useTranslations("Navigation");
   return (
     <aside className="md:w-[20%] md:p-10 w-fit h-screen flex flex-col gap-6 text-[#ffffff] pt-10 bg-[#141C2B] dark:bg-[#091527]">
       <h2 className="lg:text-3xl text-2xl lg:font-extrabold font-normal border-b border-[#374151] pb-6 md:block hidden">
-        نظام ادارة العملاء
+        {t("title")}
       </h2>
       <ul className="flex flex-col gap-3">
         <Link href={"/"}>
@@ -17,7 +19,7 @@ const SideBar = () => {
               height={35}
               className="md:hidden block"
             />
-            <p className="md:block hidden">لوحة التحكم</p>
+            <p className="md:block hidden">{t("dashboard")}</p>
           </li>
         </Link>
         <Link href={"/customers"}>
@@ -29,7 +31,7 @@ const SideBar = () => {
               height={35}
               className="md:hidden block"
             />
-            <p className="md:block hidden">العملاء</p>
+            <p className="md:block hidden">{t("customers")}</p>
           </li>
         </Link>
         <Link href={"/tasks"}>
@@ -41,7 +43,7 @@ const SideBar = () => {
               height={35}
               className="md:hidden block"
             />
-            <p className="md:block hidden">المهام</p>
+            <p className="md:block hidden">{t("tasks")}</p>
           </li>
         </Link>
         <Link href={"/settings"}>
@@ -53,7 +55,7 @@ const SideBar = () => {
               height={35}
               className="md:hidden block"
             />
-            <p className="md:block hidden">الاعدادات</p>
+            <p className="md:block hidden">{t("settings")}</p>
           </li>
         </Link>
       </ul>

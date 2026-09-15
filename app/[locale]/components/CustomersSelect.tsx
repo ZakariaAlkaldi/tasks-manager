@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 
 type customersType = {
   selected: string;
@@ -11,6 +12,7 @@ export default function CustomersSelect({
   customers,
   selected,
 }: customersType) {
+  const t = useTranslations("Status");
   return (
     <div className="relative w-fit">
       <select
@@ -18,7 +20,7 @@ export default function CustomersSelect({
         onChange={(e) => onSelectedChange(e.target.value)}
         className="cursor-pointer appearance-none rounded-md bg-[#eef2fc] px-4 py-3 pr-10 text-sm font-medium text-[#172033] outline-none transition-colors hover:bg-[#e5ebfa] focus:ring-2 focus:ring-[#d5def3] w-56 sm:w-49"
       >
-        <option value="all">كل العملاء</option>
+        <option value="all">{t("allCustomers")}</option>
         {customers.map((customer, index) => {
           return (
             <option key={index} value={customer}>
