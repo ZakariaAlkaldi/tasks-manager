@@ -8,8 +8,10 @@ import PopUp from "./PopUp";
 import { deleteCustomer } from "../services/customer.service";
 import SuccPopUp from "./SuccPopUp";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 const CustomersContent = ({ customers }: { customers: customer[] }) => {
+  const t = useTranslations("Customers");
   const [search, setSearch] = useState("");
   const [isDisplay, setIsDisplay] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
@@ -44,41 +46,38 @@ const CustomersContent = ({ customers }: { customers: customer[] }) => {
     <>
       {isDisplay && (
         <PopUp
-          title="حذف عميل"
-          description="هل أنت متأكد من حذف هذا العميل؟"
+          title={t("deleteTitle")}
+          description={t("deleteDescription")}
           onClose={onClose}
           onConfirm={onConfirm}
         />
       )}
       {isDeleted && (
         <SuccPopUp
-          title="حذف عميل"
-          description="تم حذف العميل بنجاح"
+          title={t("deleteTitle")}
+          description={t("deletedDescription")}
           onClose={onClose}
         />
       )}
       <div className="w-full flex items-center justify-between">
-        <SearchForm
-          placeHolder="أبحث بأسم العميل"
-          onSearchChanges={setSearch}
-        />
-        <AddButton text="أضافة عميل" link="../customers/addCustomer" />
+        <SearchForm placeHolder={t("search")} onSearchChanges={setSearch} />
+        <AddButton text={t("add")} link="../customers/addCustomer" />
       </div>
 
       <table className="w-full border-collapse text-center table-auto ">
         <thead>
           <tr className="bg-[#141C2B] dark:bg-[#0E1D31] text-white">
             <th className="p-5 text-md sm:text-xl font-bold uppercase ">
-              أسم العميل
+              {t("name")}
             </th>
             <th className="p-5 text-md sm:text-xl font-bold uppercase ">
-              الايميل
+              {t("email")}
             </th>
             <th className="p-5 text-md sm:text-xl font-bold uppercase ">
-              الشركة
+              {t("company")}
             </th>
             <th className="p-5 text-md sm:text-xl font-bold uppercase ">
-              الأفعال
+              {t("actions")}
             </th>
           </tr>
         </thead>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 type statusType = {
   selected: string;
@@ -11,6 +11,7 @@ export default function StatusSelect({
   onSelectedChange,
   selected,
 }: statusType) {
+  const t = useTranslations("Status");
   return (
     <div className="relative w-fit">
       <select
@@ -18,10 +19,10 @@ export default function StatusSelect({
         onChange={(e) => onSelectedChange(e.target.value)}
         className="cursor-pointer appearance-none rounded-md bg-[#eef2fc] px-4 py-3 pr-10 text-sm font-medium text-[#172033] outline-none transition-colors hover:bg-[#e5ebfa] focus:ring-2 focus:ring-[#d5def3] w-56 sm:w-49"
       >
-        <option value="all">كل الحالات</option>
-        <option value="IN_PROGRESS">قيد التنفيذ</option>
-        <option value="PENDING">قيد الانتظار</option>
-        <option value="COMPLETED">مكتملة</option>
+        <option value="all">{t("all")}</option>
+        <option value="IN_PROGRESS">{t("inProgress")}</option>
+        <option value="PENDING">{t("pending")}</option>
+        <option value="COMPLETED">{t("completed")}</option>
       </select>
 
       {/* Custom arrow */}

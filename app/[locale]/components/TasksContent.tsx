@@ -10,8 +10,10 @@ import { useRouter } from "next/navigation";
 import PopUp from "./PopUp";
 import SuccPopUp from "./SuccPopUp";
 import { deleteTask } from "../services/task.service";
+import { useTranslations } from "next-intl";
 
 const TasksContent = ({ tasks }: { tasks: task[] }) => {
+  const t = useTranslations("Tasks");
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("all");
   const [customer, setCustomer] = useState("all");
@@ -63,25 +65,22 @@ const TasksContent = ({ tasks }: { tasks: task[] }) => {
     <>
       {isDisplay && (
         <PopUp
-          title="حذف مهمة"
-          description="هل أنت متأكد من حذف هذه المهمة؟"
+          title={t("deleteTitle")}
+          description={t("deleteDescription")}
           onClose={onClose}
           onConfirm={onConfirm}
         />
       )}
       {isDeleted && (
         <SuccPopUp
-          title="حذف مهمة"
-          description="تم حذف المهمة بنجاح"
+          title={t("deleteTitle")}
+          description={t("deletedDescription")}
           onClose={onClose}
         />
       )}
       <div className="w-full flex items-center justify-between">
-        <SearchForm
-          placeHolder="أبحث بأسم المهمة"
-          onSearchChanges={setSearch}
-        />
-        <AddButton text="أضافة مهمة" link="../tasks/addTask" />
+        <SearchForm placeHolder={t("search")} onSearchChanges={setSearch} />
+        <AddButton text={t("add")} link="../tasks/addTask" />
       </div>
 
       <div className="w-full sm:w-100 flex gap-2 mb-5">
@@ -97,19 +96,19 @@ const TasksContent = ({ tasks }: { tasks: task[] }) => {
         <thead>
           <tr className="bg-[#141C2B] dark:bg-[#0E1D31] text-white">
             <th className="p-5 text-md sm:text-xl font-bold uppercase ">
-              المهمة
+              {t("task")}
             </th>
             <th className="p-5 text-md sm:text-xl font-bold uppercase ">
-              العميل
+              {t("customer")}
             </th>
             <th className="p-5 text-md sm:text-xl font-bold uppercase ">
-              الحالة
+              {t("status")}
             </th>
             <th className="p-5 text-md sm:text-xl font-bold uppercase ">
-              وقت التسليم
+              {t("dueDate")}
             </th>
             <th className="p-5 text-md sm:text-xl font-bold uppercase ">
-              الأفعال
+              {t("actions")}
             </th>
           </tr>
         </thead>

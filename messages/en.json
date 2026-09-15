@@ -11,5 +11,91 @@
     "tableCustomer": "Customer",
     "tableStatus": "Status",
     "tableDueDate": "Delivery Time"
+  },
+  "Navigation": {
+    "title": "Customer Management System",
+    "dashboard": "Dashboard",
+    "customers": "Customers",
+    "tasks": "Tasks",
+    "settings": "Settings"
+  },
+  "Customers": {
+    "pageTitle": "Customers List",
+    "addTitle": "Add Customer",
+    "search": "Search by customer name",
+    "add": "Add Customer",
+    "name": "Customer Name",
+    "email": "Email",
+    "company": "Company",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleteTitle": "Delete Customer",
+    "deleteDescription": "Are you sure you want to delete this customer?",
+    "deletedDescription": "Customer deleted successfully",
+    "namePlaceholder": "Customer name",
+    "emailPlaceholder": "Email address",
+    "companyPlaceholder": "Company"
+  },
+  "Tasks": {
+    "pageTitle": "Tasks List",
+    "addTitle": "Add Task",
+    "search": "Search by task name",
+    "add": "Add Task",
+    "task": "Task",
+    "customer": "Customer",
+    "status": "Status",
+    "dueDate": "Due Date",
+    "actions": "Actions",
+    "more": "More",
+    "delete": "Delete",
+    "deleteTitle": "Delete Task",
+    "deleteDescription": "Are you sure you want to delete this task?",
+    "deletedDescription": "Task deleted successfully"
+  },
+  "Forms": {
+    "required": "Please enter all data",
+    "invalidEmail": "Please enter a valid email address",
+    "add": "Add",
+    "update": "Update",
+    "customerSelect": "Choose a customer",
+    "titlePlaceholder": "Task title",
+    "descriptionPlaceholder": "Task description",
+    "dueDate": "Task due date",
+    "taskAdded": "Task added: {title}",
+    "customerAdded": "Customer added: {name}",
+    "customerUpdated": "Customer details updated: {name}",
+    "taskError": "An error occurred while adding the task: {error}",
+    "customerAddError": "An error occurred while adding the customer: {error}",
+    "customerUpdateError": "An error occurred while updating the details: {error}",
+    "customerRequired": "Please choose a customer"
+  },
+  "TaskDetails": {
+    "back": "Back to tasks",
+    "dueDate": "Due date",
+    "customer": "Customer",
+    "createdDate": "Creation date",
+    "description": "Task details",
+    "changeStatus": "Change status"
+  },
+  "Settings": {
+    "pageTitle": "Settings",
+    "chooseTheme": "Choose theme",
+    "chooseLanguage": "Choose language",
+    "arabic": "Arabic",
+    "english": "English",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "Common": {
+    "cancel": "Cancel",
+    "deleteTask": "Delete Task"
+  },
+  "Status": {
+    "all": "All statuses",
+    "inProgress": "In progress",
+    "pending": "Pending",
+    "completed": "Completed",
+    "allCustomers": "All customers"
   }
 }

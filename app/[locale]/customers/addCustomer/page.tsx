@@ -2,8 +2,11 @@
 import PageTitle from "../../components/PageTitle";
 import { addCustomer } from "../../services/customer.service";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 const AddCustomer = () => {
+  const t = useTranslations("Forms");
+  const customerT = useTranslations("Customers");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
@@ -14,13 +17,13 @@ const AddCustomer = () => {
     e.preventDefault();
 
     if (!name || !email || !company) {
-      setError("قم بادخال كل البيانات");
+      setError(t("required"));
       setTimeout(() => {
         setError("");
       }, 2000);
     } else {
       if (!email.endsWith(".com") || !email.includes("@")) {
-        setError("الرجاء كتابة البريد بالشكل الصحيح");
+        setError(t("invalidEmail"));
         setTimeout(() => {
           setError("");
         }, 2000);
@@ -34,12 +37,12 @@ const AddCustomer = () => {
         try {
           const result = await addCustomer(customer);
 
-          setCreated(`تمت اضافة العميل: ${result.data.name}`);
+          setCreated(t("customerAdded", { name: result.data.name }));
           setTimeout(() => {
             setCreated("");
           }, 2000);
         } catch (error) {
-          setError(` ${error}حدث خطأ أثناء إضافة العميل`);
+          setError(t("customerAddError", { error: String(error) }));
           setTimeout(() => {
             setError("");
           }, 2000);
@@ -50,7 +53,7 @@ const AddCustomer = () => {
 
   return (
     <div>
-      <PageTitle title="أضافة عميل"></PageTitle>
+      <PageTitle title={customerT("addTitle")} />
       <form
         onSubmit={handleSubmit}
         className="text-center w-full sm:w-100 flex flex-col"
@@ -58,7 +61,7 @@ const AddCustomer = () => {
         <input
           className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] dark:bg-[#0F1E35] text-[#334155] dark:text-white placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:border dark:border-[#1D3858]"
           type="text"
-          placeholder="أسم العميل"
+          placeholder={t("namePlaceholder")}
           onChange={(e) => {
             setName(e.target.value);
           }}
@@ -66,7 +69,7 @@ const AddCustomer = () => {
         <input
           className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] dark:bg-[#0F1E35] text-[#334155] dark:text-white placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:border dark:border-[#1D3858]"
           type="email"
-          placeholder="عنوان البريد"
+          placeholder={t("emailPlaceholder")}
           onChange={(e) => {
             setEmail(e.target.value);
           }}
@@ -74,7 +77,7 @@ const AddCustomer = () => {
         <input
           className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] dark:bg-[#0F1E35] text-[#334155] dark:text-white placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:border dark:border-[#1D3858]"
           type="text"
-          placeholder="الشركة"
+          placeholder={t("companyPlaceholder")}
           onChange={(e) => {
             setCompany(e.target.value);
           }}
@@ -83,7 +86,7 @@ const AddCustomer = () => {
           type="submit"
           className="w-full h-full py-3 px-5 bg-[#141C2B] dark:bg-[#113E80] text-white font-bold cursor-pointer"
         >
-          اضافة
+          {t("add")}
         </button>
         <p className="mt-5 text-red-500">{error}</p>
         <p className="mt-5 text-green-800">{created}</p>

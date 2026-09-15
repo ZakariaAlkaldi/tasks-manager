@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { updateTask } from "../services/task.service";
+import { useTranslations } from "next-intl";
 
 const statuses = [
   {
@@ -30,6 +31,7 @@ export default function StatusButtons({
   initialStatus: string;
   taskTd: string;
 }) {
+  const t = useTranslations("Status");
   const [selectedStatus, setSelectedStatus] = useState(initialStatus);
 
   return (
@@ -54,7 +56,13 @@ export default function StatusButtons({
                 isSelected ? "bg-white" : `bg-${status.color}-600`
               }`}
             />
-            {status.value}
+            {t(
+              status.value === "PENDING"
+                ? "pending"
+                : status.value === "IN_PROGRESS"
+                  ? "inProgress"
+                  : "completed",
+            )}
           </button>
         );
       })}

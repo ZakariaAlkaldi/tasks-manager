@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 interface DeleteTaskPopupProps {
   title: string;
   description: string;
@@ -11,11 +13,9 @@ const PopUp = ({
   onClose,
   onConfirm,
 }: DeleteTaskPopupProps) => {
+  const t = useTranslations("Common");
   return (
-    <div
-      dir="rtl"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 px-4 backdrop-blur-[2px]"
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 px-4 backdrop-blur-[2px]">
       {/* Popup */}
       <div className="w-full max-w-110 rounded-2xl border border-slate-200 bg-white p-7 shadow-2xl">
         {/* Close */}
@@ -43,7 +43,7 @@ const PopUp = ({
             onClick={onClose}
             className="flex-1 rounded-lg border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-50"
           >
-            إلغاء
+            {t("cancel")}
           </button>
 
           {/* Delete */}
@@ -51,7 +51,7 @@ const PopUp = ({
             onClick={onConfirm}
             className="flex-1 rounded-lg bg-red-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-600 focus:ring-4 focus:ring-red-100"
           >
-            حذف المهمة
+            {t("deleteTask")}
           </button>
         </div>
       </div>

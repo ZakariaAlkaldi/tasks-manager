@@ -11,5 +11,91 @@
     "tableCustomer": "العميل",
     "tableStatus": "الحالة",
     "tableDueDate": "وقت التسليم"
+  },
+  "Navigation": {
+    "title": "نظام ادارة العملاء",
+    "dashboard": "لوحة التحكم",
+    "customers": "العملاء",
+    "tasks": "المهام",
+    "settings": "الاعدادات"
+  },
+  "Customers": {
+    "pageTitle": "قائمة العملاء",
+    "addTitle": "أضافة عميل",
+    "search": "أبحث بأسم العميل",
+    "add": "أضافة عميل",
+    "name": "أسم العميل",
+    "email": "الايميل",
+    "company": "الشركة",
+    "actions": "الأفعال",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "deleteTitle": "حذف عميل",
+    "deleteDescription": "هل أنت متأكد من حذف هذا العميل؟",
+    "deletedDescription": "تم حذف العميل بنجاح",
+    "namePlaceholder": "أسم العميل",
+    "emailPlaceholder": "عنوان البريد",
+    "companyPlaceholder": "الشركة"
+  },
+  "Tasks": {
+    "pageTitle": "قائمة المهام",
+    "addTitle": "أضافة مهمة",
+    "search": "أبحث بأسم المهمة",
+    "add": "أضافة مهمة",
+    "task": "المهمة",
+    "customer": "العميل",
+    "status": "الحالة",
+    "dueDate": "وقت التسليم",
+    "actions": "الأفعال",
+    "more": "المزيد",
+    "delete": "حذف",
+    "deleteTitle": "حذف مهمة",
+    "deleteDescription": "هل أنت متأكد من حذف هذه المهمة؟",
+    "deletedDescription": "تم حذف المهمة بنجاح"
+  },
+  "Forms": {
+    "required": "قم بادخال كل البيانات",
+    "invalidEmail": "الرجاء كتابة البريد بالشكل الصحيح",
+    "add": "اضافة",
+    "update": "تعديل",
+    "customerSelect": "اختر احد العملاء",
+    "titlePlaceholder": "عنوان المهمة",
+    "descriptionPlaceholder": "وصف المهمة",
+    "dueDate": "تاريخ تسليم المهمة",
+    "taskAdded": "تمت اضافة المهمة: {title}",
+    "customerAdded": "تمت اضافة العميل: {name}",
+    "customerUpdated": "تم تعديل بيانات {name}",
+    "taskError": "{error}حدث خطأ أثناء إضافة المهمة",
+    "customerAddError": "{error}حدث خطأ أثناء إضافة العميل",
+    "customerUpdateError": "{error}حدث خطأ أثناء تعديل البيانات",
+    "customerRequired": "الرجاء اختيار احد العملاء"
+  },
+  "TaskDetails": {
+    "back": "العودة إلى المهام",
+    "dueDate": "تاريخ الاستحقاق",
+    "customer": "العميل",
+    "createdDate": "تاريخ الإنشاء",
+    "description": "تفاصيل المهمة",
+    "changeStatus": "تغير الحالة"
+  },
+  "Settings": {
+    "pageTitle": "صفحة الاعدادات",
+    "chooseTheme": "أختر الوضع",
+    "chooseLanguage": "أختر اللغة",
+    "arabic": "عربي",
+    "english": "انجليزي",
+    "light": "فاتح",
+    "dark": "ليلي"
+  },
+  "Common": {
+    "cancel": "إلغاء",
+    "deleteTask": "حذف المهمة"
+  },
+  "Status": {
+    "all": "كل الحالات",
+    "inProgress": "قيد التنفيذ",
+    "pending": "قيد الانتظار",
+    "completed": "مكتملة",
+    "allCustomers": "كل العملاء"
   }
 }
