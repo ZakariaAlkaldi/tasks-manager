@@ -1,5 +1,5 @@
-import StatusButtons from "@/app/components/StatusButtons";
-import { getTaskById } from "@/app/services/task.service";
+import StatusButtons from "../../components/StatusButtons";
+import { getTaskById } from "../../services/task.service";
 import Link from "next/link";
 
 type props = {

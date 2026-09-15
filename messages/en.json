@@ -1,0 +1,15 @@
+{
+  "Dashboard": {
+    "pageTitle": "Dashboard",
+    "totalCustomers": "Total Customers",
+    "totalTasks": "Total Tasks",
+    "pendingTasks": "Pending Tasks",
+    "inProgressTasks": "In Progress Tasks",
+    "completedTasks": "Completed Tasks",
+    "recentTasksTitle": "Recent Tasks",
+    "tableTask": "Task",
+    "tableCustomer": "Customer",
+    "tableStatus": "Status",
+    "tableDueDate": "Delivery Time"
+  }
+}

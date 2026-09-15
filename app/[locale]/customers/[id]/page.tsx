@@ -1,7 +1,7 @@
-import PageTitle from "@/app/components/PageTitle";
-import UpdateCustomerForm from "@/app/components/UpdateCustomerForm";
-import { getCutomerById } from "@/app/services/customer.service";
-import { customer } from "@/app/types/customer";
+import PageTitle from "../../components/PageTitle";
+import UpdateCustomerForm from "../../components/UpdateCustomerForm";
+import { getCutomerById } from "../../services/customer.service";
+import { customer } from "../../types/customer";
 
 type props = {
   params: Promise<{ id: string }>;
