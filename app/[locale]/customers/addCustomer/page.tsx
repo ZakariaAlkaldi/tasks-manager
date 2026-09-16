@@ -61,7 +61,7 @@ const AddCustomer = () => {
         <input
           className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] dark:bg-[#0F1E35] text-[#334155] dark:text-white placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:border dark:border-[#1D3858]"
           type="text"
-          placeholder={t("namePlaceholder")}
+          placeholder={t("customerName")}
           onChange={(e) => {
             setName(e.target.value);
           }}
@@ -69,7 +69,7 @@ const AddCustomer = () => {
         <input
           className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] dark:bg-[#0F1E35] text-[#334155] dark:text-white placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:border dark:border-[#1D3858]"
           type="email"
-          placeholder={t("emailPlaceholder")}
+          placeholder={t("customerEmail")}
           onChange={(e) => {
             setEmail(e.target.value);
           }}
@@ -77,7 +77,7 @@ const AddCustomer = () => {
         <input
           className="p-3 my-2 w-full  sm:w-100 bg-[#EEF2FF] dark:bg-[#0F1E35] text-[#334155] dark:text-white placeholder:text-[#64748B] sm:placeholder:text-xl outline-none dark:border dark:border-[#1D3858]"
           type="text"
-          placeholder={t("companyPlaceholder")}
+          placeholder={t("customerCompany")}
           onChange={(e) => {
             setCompany(e.target.value);
           }}
