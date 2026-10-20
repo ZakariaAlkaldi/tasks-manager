@@ -4,7 +4,7 @@ A multilingual customer and task management portal built with Next.js. The appli
 
 The frontend communicates with an external REST API. This repository contains the web application, its UI, localization, theme controls, and API client functions; it does not contain the backend service or database.
 
-You Can Tyr The App From Here: https://tasks-manager-omega-one.vercel.app/
+You Can Try The App From Here: https://tasks-manager-omega-one.vercel.app/
 
 ## What the Project Does
 
